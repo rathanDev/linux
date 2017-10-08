@@ -1,0 +1,9 @@
+node -v
+6.11.4
+
+npm -v
+3.10.10
+
+npm config set strict-ssl false
+
+npm install -g mongodb
