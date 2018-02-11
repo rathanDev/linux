@@ -1,0 +1,7 @@
+echo $PATH
+
+sublime
+=======
+
+Ctrl + k + m  - toggle side bar
+Ctrl + 0 - focus_side_bar
