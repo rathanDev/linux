@@ -1,0 +1,49 @@
+
+Installing xenial on Dell inspiron 5559 @2018Mar31
+
+f2 - enter boot setup
+
+General
+ Boot sequence - 
+	Check UEFI general
+	Boot list option
+		UEFI							Apply
+
+ Advanced boot options - uncheck enable legacy option roms		Apply
+	
+
+Secure boot
+	secure boot enable - enabled					Apply
+
+System configuration
+	integrated nic		check enable uefi network stack	
+
+
+--------------------------------------------------------------------------------
+
+installation
+
+select 'something else'
+
+free space -> +
+
+
+swap area = amount of ram
+
+Type 	: Logical
+Location: Beginning of the space
+Use as 	: swap area
+
+
+/
+
+Type	: primary
+Location: Beginning
+Use as  : / 
+
+
+
+
+
+
+
