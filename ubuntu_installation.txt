@@ -45,7 +45,7 @@ sudo dpkg -i /pathToDebFile
 
 sudo ln -s /path/to/VSCode/code /usr/local/bin/code
 
-
+sudo apt --fix-broken install
 
 
 
