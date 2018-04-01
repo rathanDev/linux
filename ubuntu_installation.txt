@@ -1,5 +1,5 @@
 
-Installing xenial on Dell inspiron 5559 @2018Mar31
+Installing 17.1 on Dell inspiron 5559 @2018Mar31
 
 f2 - enter boot setup
 
@@ -18,10 +18,7 @@ Secure boot
 System configuration
 	integrated nic		check enable uefi network stack	
 
-
---------------------------------------------------------------------------------
-
-installation
+-----------------------------------OS---------------------------------------------
 
 select 'something else'
 
@@ -41,6 +38,12 @@ Type	: primary
 Location: Beginning
 Use as  : / 
 
+------------------------------------software installation --------------------]
+
+install vim
+sudo dpkg -i /pathToDebFile
+
+sudo ln -s /path/to/VSCode/code /usr/local/bin/code
 
 
 
