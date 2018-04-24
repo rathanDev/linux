@@ -1,0 +1,76 @@
+Quiz-
+
+aws service used for collecting large amounts of data streamed from multiple resources
+-kinesis
+
+18.
+need to supply auditors with logs
+detailing the individual users
+that provision specific resources on your aws platform.
+-CloudTrail
+
+19.
+need a configuration mgt service 
+that enables ur system administors to configure and operate ur web app using chef.
+-Opworks
+
+20.
+digital media agency needs to convert their media files in to different formats to suit different devices.
+-Elastic transcoder
+
+------------------------------------------------
+
+S3 L12
+
+IAM
+allows to manage users
+
+centralized control of aws exam
+shared access to ur aws account
+allows multi factor authentication
+temporary access to users when necessary
+allows to setup own password policy
+
+Users
+end users (people) 
+
+Groups
+a collection of users under one set of permissions
+
+Roles
+assign roles and assign them to aws resources
+
+policies
+a doc that defines 1/more permissions
+
+------
+S3 L13
+
+IAM
+
+customize 
+
+activate multi factor authentication on root account
+
+manage mfa ->
+virtual mfa device 	resynchronize mfa device
+
+Android - google authenticator
+open - scan code
+
+add user
+set user details
+set aws access type
+add user to group
+crate users
+- download credentials as csv 
+
+
+
+
+
+
+
+
+
+
