@@ -46,6 +46,7 @@ a doc that defines 1/more permissions
 ------
 S3 L13
 
+Security, Identity and Compliance
 IAM
 
 customize 
@@ -64,6 +65,225 @@ set aws access type
 add user to group
 crate users
 - download credentials as csv 
+
+
+Dashboard -> manage password policy
+
+Roles => create
+Role type
+EC2 => 
+
+-------------------------------------------------------------
+S3 L14
+create a billing alarm
+
+Profiles -> billing dashboard
+
+Mgt tools -> 	Cloud watch
+Alarms -> billing alarms
+
+Aurora - 37 dollars gone
+
+-------------------------------------------------------------
+
+S3 L15
+
+IAM consists
+Users 
+Groups
+Roles
+Policy Documents		Effect Action Resource
+
+IAM is universal, doen't apply region at this time
+root account - full admin 
+new users have no permissions when created
+aws console - username, password
+api programmatically - access key id, secret access key
+
+-------------------------------------------------------------
+
+Quiz
+
+IAM
+IAM allows you to manage users, groups, roles and 
+their corresponding level of access to AWS platform
+
+IAM
+centralised control of your aws account
+integrates with existing active directory account allowing single sign on
+fine grained access control to aws resources
+the ability to create user/group/roles
+allows you to set up your own password protection policy
+
+Power user access allows
+access to all aws services except for mgt of groups and users within IAM
+
+root account
+administrator access
+
+Users and policy regions are global
+
+very first thing
+set up an account using their company email address
+
+You are a security administrator working for a hotel chain. You have a new member of staff who has started as a systems administrator and they will need full access to the AWS console. You have created the user account and generated the access key id and the secret access key. You have moved this user into the group where the other administrators are and you have provided the new user with their secret access key and their access key id. However when they go to log in to the AWS console, they cannot sign in. What could be the cause of this?
+-cannot log into console using access id and secret key, instead u must generate a password for the user and supply this user with the password as well as unique link
+
+additional way to secure IAM for both the root login and new users alike
+-multi factor authentication
+
+by default when new user is created
+no accesss to all aws services
+
+policy docs are written in
+json
+
+----------------------------------------------------------------------------------------------
+
+S4 L16
+
+S3 - 101
+
+simple storage service
+durable, highly scalable object storage
+object based storage (fa)
+data is spread across multiple devices and facilities
+can't install os or db
+
+S3
+object based allows u to upload files
+0 - 5 tb objects
+unlimited storage
+files are stored in buckets
+s3 is universal namespace, unique globally
+
+Data consistency model for s3
+
+Read after write consistency for puts of new objects
+eventual consistency for overwrite puts and deletes (can take some time to propagate)
+
+s3 - is a simple key value storage
+key		fileName
+value		file
+version id	
+meta data	data about metadata - Eg:when created
+subresources 	Access control lists
+		torrent		
+
+99.99	2  9 availabity		 same for all
+	11 9 durability gurantee	11 9		2 9
+
+tiered storage available
+lifecycle mgt
+version
+encrypting 
+
+s3 - storage class tier
+S3 std- 
+S3 IA - infrequent access
+s3 reduced redundancy storage
+
+Glacier
+very cheap
+used for archival only
+3-5 hours to restore from glacier
+
+s3 charges
+charged for 
+storage
+requests
+storage mgt pricing
+data transfer pricing - coming in free, moving out charged
+
+transfer acceleration - 
+it enable fast easy and secure transfer of files over long distances between ur end users and s3 bucket.
+takes advantage of CloudFront's globally distributed edge locations
+as the data arrives at an edge location, data is routed to s3 over optimized network path
+
+upto 37% faster
+ 
+read after write consistency for puts of new objects
+eventual consistency for overwrite puts and deletes (can take some time to propogate)
+
+--------tips
+
+s3 storage classes/tiers
+S3 - 	durable, immediately available, frequently accessed
+s3 IA - durable, immediately available, infrequently accessed
+s3 reduced redundancy storage - data that is easily reproducable, eg: thumbnail
+Glacier - archived data - u can wait 3-5 hours b4 accessing
+
+core fundamentals of s3
+key 
+value
+version
+metadata
+subresources - exists underneath the object
+	acl - access conrol list	
+	torrent - support for 
+
+upload 200 status
+
+--------------------------------------------------------------------------------------------
+
+S4 L17
+
+services - storage - s3
+
+bucket name uses dns 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
 
 
 
