@@ -232,6 +232,108 @@ services - storage - s3
 
 bucket name uses dns 
 
+individual objects do not inherit bucket's tags
+
+
+
+
+
+learner.4vr@gmail.com
+layABrick@127
+
+aws account name: rathan
+
+
+---
+
+aws free tier account
+
+https://aws.amazon.com/free/
+
+
+Delete object
+delete all versions
+delete delete marker
+
+s3 versioning not always useful
+
+MFA delete
+
+--s3 versioning exam tips
+
+stores all versions of an object (including all writes and even if you delete an object)
+great back up tool
+once enabled versioning cannot be disabled, only suspended
+integrates with lifecycle rules
+versioning mfa's delete capability, which uses multi factor authentication
+can be used to provide an additional layer of security
+
+
+------------------------------------------------------------------------------------------------------------
+
+cross region replication - lab
+for s3
+
+
+Management -> Replication
+
+
+Source- select the replica bucket
+Destination - select iam role
+
+only new ones go to replica
+
+google "aws command line tools"
+https://aws.amazon.com/cli/
+
+pip install awscli
+
+if old version of pip
+sudo -H  python -m  pip install --upgrade pip
+pip install awscli
+
+aws configure
+
+services -> security, identity and compliance - groups
+iam - create group
+
+group name - policy type(Administrator access)			AwsAdminAccess2
+
+create user - programmatic access				prouser	
+
+
+access key id
+AKIAIX7P73F64CF23Y6A
+
+secret access key
+Rb+d9O2Nm/kRo8MUCPGmhZt/ZtQTm295wZ5tCkF7
+
+janarthan@janarthan1:~$ aws configure
+AWS Access Key ID [None]: AKIAIX7P73F64CF23Y6A
+AWS Secret Access Key [None]: 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
+Default region name [None]: 
+Default output format [None]: 
+
+janarthan@janarthan1:~$ aws s3 ls
+2018-04-24 10:47:20 acloudguru-2018-04
+2018-04-26 08:44:50 acloudguru2018jana
+2018-04-27 18:28:11 myregionbucket2018
+
+aws s3 cp --recursive s3://bucket1 s3://bucket2
+acloudguru2018jana
+myregionbucket2018
+
+janarthan@janarthan1:~$ aws s3 cp --recursive s3://acloudguru2018jana s3://myregionbucket2018
+copy: s3://acloudguru2018jana/awsVersionTester.txt to s3://myregionbucket2018/awsVersionTester.txt
+copy: s3://acloudguru2018jana/awsCost.png to s3://myregionbucket2018/awsCost.png
+
+source bucket 	- 	destination bucket
+
+when u delete an object from a source bucket creates a delete marker
+and creates a delete market in destination bucket as well
+
+when u delete the delete market from source bucket 
+it doesn't delete the delete market from destination bucket
 
 
 
@@ -272,6 +374,15 @@ bucket name uses dns
 
 
 
+
+
+
+
+
+
+
+
+https://www.youtube.com/watch?v=ye7hgGZwSsY&list=PLJIqXVV4K5LXEGBDPy1mxigzNVMAzkOHv
 
 
 
