@@ -455,6 +455,15 @@ Web / RTMP
 restrict viewer access
 - use signed urls or signed cookies
 
+Distribution settings 
+-origin
+-behavior
+-error pages
+-restrictions - geographical - white/black list
+-invalidations - rather than waiting for ttl, can invalidate, is charged
+
+ttl - time to live - always in seconds
+
 configurations
 
 behaviours
@@ -471,12 +480,73 @@ then go and delete it
 
 S4 L23
 
+S3 - security encryption
+
+securing your buckets
+
+by default, all newly created buckets are private
+you can set up access control to ur buckets using;
+bucket policies
+access control lists
+
+s3 buckets can be configured to create access logs which logs all requests made to the s3 bucket. this can be done to another bucket.
+
+Encryption:
+ 
+In transit
+	SSL/TLS	https
+
+At Rest
+	server side encryption
+	client side
+
+server side
+1. s3 managed keys - 					SSE-S3	
+	256
+2. AWS Key Mgt service, managed keys - 			SSE-KMS
+	provides order trail
+3. server side encryption with customer provided keys - SSE-C
+
+client side encryption
+you encrypt the data at client side and upload it to s3
+
+-------------
+S4 L24
+
+Storage gateway
+
+is a service 
+that connects an on-premises sw appliance 
+with cloud-based storage 
+to provide seamless and secure integration 
+between an organization's on-premises IT environment and AWS's storage infrastructure. 
+The service enables you to securely store data to the aws cloud for scalable and cost effective storage.
+
+your data center -> aws
+
+aws storage gateway's sw appliance is available for download as a virtual machine VM image that you install on a host in your datacenter. 
+storage gateway supports either vmware esxi or  microsoft hyper-v. once you've installed your gateway and associated it with your aws account through the acitvation process, you can use the aws mgt console to create the storage gateway option that is right for you.
+
+Four types of storage gateways
+
+File Gateway (NFS)
+flat files
+
+Volumes Gateway (iSCI)
 
 
 
 
 
 
+
+
+
+
+
+***samTheCloudGuy*****************************************************************************
+
+part 27	aws ec2
 
 
 
