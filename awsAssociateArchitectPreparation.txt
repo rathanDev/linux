@@ -331,6 +331,169 @@ when u delete the delete market from source bucket
 it doesn't delete the delete market from destination bucket
 
 ---
+Apr 28
+
+S3 - cross region replication exam tips
+
+versioning must be enabled on both the source and destination buckets
+regions must be unique
+files in an existing bucket are not replicated automatically.
+all subsequent updated files will be replicated automatically
+you cannot replicate to multiple buckets or use daisy chaining (at this time)
+delete markers are replicated
+deleting individual versions or delete markers will not be replicated
+understand what cross region replication is at a high level
+
+---------------
+
+S4 L20
+
+Life cycle mgt , s3-IA & Glacier lab
+automate transition to tiered storage
+
+s3 -> s3-IA -> glacier
+
+s3 -> mgt -> Add lifecycle rule
+name -> configure transistion -> 
+
+current version -> add transisistion
+to IA after 30 days
+to Glacier after 60 days
+
+previous version -> to IA -> to Glacier
+
+configure expiration
+save
+
+------
+
+lifecycle mgt - exam tips
+
+can be used in conjunction with versioning 
+can be applied to current and previous versions
+following actions can now be done
+ transition to the std - infrequent access storage class
+	128 kb and 30 days after the creation date
+archive to glacier storage class 
+	30 days after ia - if relevant
+permanantly delete
+
+----------
+
+S4 L21
+
+Cloud Front 
+CDN - content delivery network 
+
+it's a system of distributed servers(network) that deliver webpages and other web content to a user based on the geographic locations of the user.
+the origin of the webpage and a content delivery server.
+
+edge location 
+is the location where content will be cached
+this is seperate to an aws region/az
+
+origin
+this is the origin of all the files that the cdn will distribute.
+this can be either an 
+s3 bucket, an ec2 instance, an elastic load balancer or route 53.
+
+distribution - cdn
+collection of edge locations
+
+edge locations over 50 of them currently
+
+ttl
+time to live
+
+not quicker for the 1st user/ 1st time, but for the 2nd time it's faster
+
+amazon cloud front can be used to deliver ur entire website
+including dynamic, static and streaming and interactive content using a globale network of edge locations.
+requests for your content are automatically routed to the nearest edge location.
+so content is delivered with the best possible performance
+
+
+amz cloudfront is optimized to work with any other amz web services
+like s3, elastic compute cloud, elastic load balancing and amazon route 53.
+amz cloud front also works seamlessly with any non-aws origin server which stores the original definitive versions of ur files.
+
+Cloud Front - Key Terminology
+
+Web Distribution - Typically used for websites
+RTMP - used for media streaming
+
+--cloud front exam tips
+
+edge location - this is the location where content will be cached.
+this is seperate to an aws region/az
+
+origin - this is the origin of all the files that the cdn will distribute. this can be either an s3, ec2 or elastic load balancer or Route 53.
+
+Distribution - this is the name given to the cdn which consists of a collection of edge locations.
+
+web distribution - typically used for websites
+	Web - for websites
+	RTMP - for media streaming 
+
+edge locations are not just for read only, you can write to them too.
+(put an object to them)
+
+objects are cached for the life of the TTL (time to live)
+
+you can clear cached objects, but you will be charged.
+
+------------
+
+S4 L22
+Cloud Front
+
+services -> Networking and content delivery -> Cloud Front
+
+create a distribution
+Web / RTMP
+
+restrict viewer access
+- use signed urls or signed cookies
+
+configurations
+
+behaviours
+
+Geo Restriction settings
+
+create invalidation
+	pay
+
+Distribution -> select it and disable it.
+then go and delete it
+
+----
+
+S4 L23
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+---
+
 
 aws cloud 9
 a cloud ide
