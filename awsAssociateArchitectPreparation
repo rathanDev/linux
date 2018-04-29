@@ -514,6 +514,7 @@ you encrypt the data at client side and upload it to s3
 S4 L24
 
 Storage gateway
+popular exam topic
 
 is a service 
 that connects an on-premises sw appliance 
@@ -522,7 +523,8 @@ to provide seamless and secure integration
 between an organization's on-premises IT environment and AWS's storage infrastructure. 
 The service enables you to securely store data to the aws cloud for scalable and cost effective storage.
 
-your data center -> aws
+		  storage gw
+your data center  ---------> 	aws
 
 aws storage gateway's sw appliance is available for download as a virtual machine VM image that you install on a host in your datacenter. 
 storage gateway supports either vmware esxi or  microsoft hyper-v. once you've installed your gateway and associated it with your aws account through the acitvation process, you can use the aws mgt console to create the storage gateway option that is right for you.
@@ -531,8 +533,88 @@ Four types of storage gateways
 
 File Gateway (NFS)
 flat files
+stores directly on s3
 
-Volumes Gateway (iSCI)
+Volumes Gateway (iSCSI)
+block based
+os, virtual hdd, vm
+.stored volumes		-	gateway stored volume
+.cached volumes		-	gateway cached volume
+
+Tape Gateway (VTL) - virtual tape library
+allows u to create virtual tapes
+
+Files are stored as objects in your s3 buckets, 
+accessed through a network file system(NFS) mount point.
+Ownership, permissions, and timestaps are durably stored in s3 in the user-metadata of the object associated with the file.
+once objects are transferred to s3, they can be managed as native s3 objects and bucket policies such as versioning, lifecycle mgt and cross-region replication apply directly to objects stored in your bucket.
+
+
+	      NFS			 direct connect
+App server ---------storage gateway----  internet ---------s3-s3ia-glacier
+					 VPC	
+
+Volume Gateway
+like virtual hdd
+The volume interface presents ur app with disk volumes using the iSCSI block protocol.
+Data written to these volumes can be asychronously backed up as point-in-time snapshots of your volumes, and stored in the cloud as EBS snapshots
+snapshots are incremental backups that capture only changed blocks. all snapshots storage is also compressed to minimize your storage charges.
+
+Volume gateway - stored volumes
+like virtual hdd
+store entire copy of ur dataset locally
+then asynchronously backup that data to aws
+
+Store volumes let you store you primary data locally,
+while asynchronously backing up that data to AWS. 
+AWS stored volumes provide your on-premise applications with low-latency access to their entire datasets, while providing durable, off-site backups.
+you can create storage volumes and mount them as iSCSI devices from your on-premises app servers. Data written to your stored volumes is stored on your on-premises storage hw. This data is asynchronously backed up to amazon simple storage service in the form of Elastic Block Store (EBS) snapshots. 1GB - 16TB in size for stored volumes.
+
+Volume Gateway - Cached volumes
+
+cached volumes let you use s3 as your primry data storage while retaining frequently accessed data locally in your storage gw. cached volumes minimize the need to scale your on-premises storage infrastructure. while still providing your apps with low-latency access to their frequently accessed data.
+You can create storage  volumes up to 32 TiB in size and attach to them as iSCSI devices from your on-premises app servers. your gw stores data data that you wite to theses volumes in s3 and retains recently read data in your on-premises storage gw's cache and upload buffer storage. 1GB - 32TB in size for cached volumes.
+
+Volume Gateway -Tape Gateway
+basically used for backup
+
+Tape gateway offers a durable cost effective solution to archive your data in the aws cloud. the vtl interface it provides lets you leverage your existing tape-based backup app infrastructure to store data on virtual tape cartridges that you create on your tape gw. each tape gw is preconfigured with a media changer and tape drives, which are available to your existing client backup apps as iSCSI devices. you add tape cartridges as you need to archive your data. supported by NetBackUp, backup exec, veeam etc.
+
+
+--exam tips
+
+
+File Gw - for flat files, stored directly on s3. docs, pdfs
+Volume Gw - 
+ stored volumes - entire dataset is stored on site and is asynchronously backed up to s3
+ cached volumes - entire dataset is stored on s3 and the most frequently accessed data is cached on site.
+Gateway Virtual Tape Library - VTL
+ used for backup and used popular backup apps like netBackUp, backup exec, veeam etc.
+
+
+----------------------------------------------------------------------------------
+S4 L25
+
+Snowball
+
+Import/Export Disk
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
