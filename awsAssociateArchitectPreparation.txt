@@ -325,10 +325,10 @@ copy: s3://acloudguru2018jana/awsCost.png to s3://myregionbucket2018/awsCost.png
 source bucket 	- 	destination bucket
 
 when u delete an object from a source bucket creates a delete marker
-and creates a delete market in destination bucket as well
+and creates a delete marker in destination bucket as well
 
-when u delete the delete market from source bucket 
-it doesn't delete the delete market from destination bucket
+when u delete the delete marker from source bucket 
+it doesn't delete the delete marker from destination bucket
 
 ---
 Apr 28
@@ -494,7 +494,7 @@ s3 buckets can be configured to create access logs which logs all requests made 
 Encryption:
  
 In transit
-	SSL/TLS	https
+	SSL/TLS		https
 
 At Rest
 	server side encryption
