@@ -1,0 +1,720 @@
+Quiz-
+
+aws service used for collecting large amounts of data streamed from multiple resources
+-kinesis
+
+18.
+need to supply auditors with logs
+detailing the individual users
+that provision specific resources on your aws platform.
+-CloudTrail
+
+19.
+need a configuration mgt service 
+that enables ur system administors to configure and operate ur web app using chef.
+-Opworks
+
+20.
+digital media agency needs to convert their media files in to different formats to suit different devices.
+-Elastic transcoder
+
+------------------------------------------------
+
+S3 L12
+
+IAM
+allows to manage users
+
+centralized control of aws exam
+shared access to ur aws account
+allows multi factor authentication
+temporary access to users when necessary
+allows to setup own password policy
+
+Users
+end users (people) 
+
+Groups
+a collection of users under one set of permissions
+
+Roles
+assign roles and assign them to aws resources
+
+policies
+a doc that defines 1/more permissions
+
+------
+S3 L13
+
+Security, Identity and Compliance
+IAM
+
+customize 
+
+activate multi factor authentication on root account
+
+manage mfa ->
+virtual mfa device 	resynchronize mfa device
+
+Android - google authenticator
+open - scan code
+
+add user
+set user details
+set aws access type
+add user to group
+crate users
+- download credentials as csv 
+
+
+Dashboard -> manage password policy
+
+Roles => create
+Role type
+EC2 => 
+
+-------------------------------------------------------------
+S3 L14
+create a billing alarm
+
+Profiles -> billing dashboard
+
+Mgt tools -> 	Cloud watch
+Alarms -> billing alarms
+
+Aurora - 37 dollars gone
+
+-------------------------------------------------------------
+
+S3 L15
+
+IAM consists
+Users 
+Groups
+Roles
+Policy Documents		Effect Action Resource
+
+IAM is universal, doesn't apply region at this time
+root account - full admin 
+new users have no permissions when created
+aws console - username, password
+api programmatically - access key id, secret access key
+
+-------------------------------------------------------------
+
+Quiz
+
+IAM
+IAM allows you to manage users, groups, roles and 
+their corresponding level of access to AWS platform
+
+IAM
+centralised control of your aws account
+integrates with existing active directory account allowing single sign on
+fine grained access control to aws resources
+the ability to create user/group/roles
+allows you to set up your own password protection policy
+
+Power user access allows
+access to all aws services except for mgt of groups and users within IAM
+
+root account
+administrator access
+
+Users and policy regions are global
+
+very first thing
+set up an account using their company email address
+
+You are a security administrator working for a hotel chain. You have a new member of staff who has started as a systems administrator and they will need full access to the AWS console. You have created the user account and generated the access key id and the secret access key. You have moved this user into the group where the other administrators are and you have provided the new user with their secret access key and their access key id. However when they go to log in to the AWS console, they cannot sign in. What could be the cause of this?
+-cannot log into console using access id and secret key, instead u must generate a password for the user and supply this user with the password as well as unique link
+
+additional way to secure IAM for both the root login and new users alike
+-multi factor authentication
+
+by default when new user is created
+no accesss to all aws services
+
+policy docs are written in
+json
+
+----------------------------------------------------------------------------------------------
+
+S4 L16
+
+S3 - 101
+
+simple storage service
+durable, highly scalable object storage
+object based storage (fa)
+data is spread across multiple devices and facilities
+can't install os or db
+
+S3
+object based allows u to upload files
+0 - 5 tb objects
+unlimited storage
+files are stored in buckets
+s3 is universal namespace, unique globally
+
+Data consistency model for s3
+
+Read after write consistency for puts of new objects
+eventual consistency for overwrite puts and deletes (can take some time to propagate)
+
+s3 - is a simple key value storage
+key		fileName
+value		file
+version id	
+meta data	data about metadata - Eg:when created
+subresources 	Access control lists
+		torrent		
+
+99.99	2  9 availabity		 same for all
+	11 9 durability gurantee	11 9		2 9
+
+tiered storage available
+lifecycle mgt
+version
+encrypting 
+
+s3 - storage class tier
+S3 std- 
+S3 IA - infrequent access
+s3 reduced redundancy storage
+
+Glacier
+very cheap
+used for archival only
+3-5 hours to restore from glacier
+
+s3 charges
+charged for 
+storage
+requests
+storage mgt pricing
+data transfer pricing - coming in free, moving out charged
+
+transfer acceleration - 
+it enable fast easy and secure transfer of files over long distances between ur end users and s3 bucket.
+takes advantage of CloudFront's globally distributed edge locations
+as the data arrives at an edge location, data is routed to s3 over optimized network path
+
+upto 37% faster
+ 
+read after write consistency for puts of new objects
+eventual consistency for overwrite puts and deletes (can take some time to propogate)
+
+--------tips
+
+s3 storage classes/tiers
+S3 - 	durable, immediately available, frequently accessed
+s3 IA - durable, immediately available, infrequently accessed
+s3 reduced redundancy storage - data that is easily reproducable, eg: thumbnail
+Glacier - archived data - u can wait 3-5 hours b4 accessing
+
+core fundamentals of s3
+key 
+value
+version
+metadata
+subresources - exists underneath the object
+	acl - access conrol list	
+	torrent - support for 
+
+upload 200 status
+
+--------------------------------------------------------------------------------------------
+
+S4 L17
+
+services - storage - s3
+
+bucket name uses dns 
+
+individual objects do not inherit bucket's tags
+
+
+
+
+
+learner.4vr@gmail.com
+layABrick@127
+
+aws account name: rathan
+
+---
+
+aws free tier account
+
+https://aws.amazon.com/free/
+
+Delete object
+delete all versions
+delete delete marker
+
+s3 versioning not always useful
+
+MFA delete
+
+--s3 versioning exam tips
+
+stores all versions of an object (including all writes and even if you delete an object)
+great back up tool
+once enabled versioning cannot be disabled, only suspended
+integrates with lifecycle rules
+versioning mfa's delete capability, which uses multi factor authentication
+can be used to provide an additional layer of security
+
+------------------------------------------------------------------------------------------------------------
+
+cross region replication - lab
+for s3
+
+Management -> Replication
+
+Source- select the replica bucket
+Destination - select iam role
+
+only new ones go to replica
+
+google "aws command line tools"
+https://aws.amazon.com/cli/
+
+pip install awscli
+
+if old version of pip
+sudo -H  python -m  pip install --upgrade pip
+pip install awscli
+
+aws configure
+
+services -> security, identity and compliance - groups
+iam - create group
+
+group name - policy type(Administrator access)			AwsAdminAccess2
+
+create user - programmatic access				prouser	
+
+
+access key id
+AKIAIX7P73F64CF23Y6A
+
+secret access key
+Rb+d9O2Nm/kRo8MUCPGmhZt/ZtQTm295wZ5tCkF7
+
+janarthan@janarthan1:~$ aws configure
+AWS Access Key ID [None]: AKIAIX7P73F64CF23Y6A
+AWS Secret Access Key [None]: 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
+Default region name [None]: 
+Default output format [None]: 
+
+janarthan@janarthan1:~$ aws s3 ls
+2018-04-24 10:47:20 acloudguru-2018-04
+2018-04-26 08:44:50 acloudguru2018jana
+2018-04-27 18:28:11 myregionbucket2018
+
+aws s3 cp --recursive s3://bucket1 s3://bucket2
+acloudguru2018jana
+myregionbucket2018
+
+janarthan@janarthan1:~$ aws s3 cp --recursive s3://acloudguru2018jana s3://myregionbucket2018
+copy: s3://acloudguru2018jana/awsVersionTester.txt to s3://myregionbucket2018/awsVersionTester.txt
+copy: s3://acloudguru2018jana/awsCost.png to s3://myregionbucket2018/awsCost.png
+
+source bucket 	- 	destination bucket
+
+when u delete an object from a source bucket creates a delete marker
+and creates a delete marker in destination bucket as well
+
+when u delete the delete marker from source bucket 
+it doesn't delete the delete marker from destination bucket
+
+---
+Apr 28
+
+S3 - cross region replication exam tips
+
+versioning must be enabled on both the source and destination buckets
+regions must be unique
+files in an existing bucket are not replicated automatically.
+all subsequent updated files will be replicated automatically
+you cannot replicate to multiple buckets or use daisy chaining (at this time)
+delete markers are replicated
+deleting individual versions or delete markers will not be replicated
+understand what cross region replication is at a high level
+
+---------------
+
+S4 L20
+
+Life cycle mgt , s3-IA & Glacier lab
+automate transition to tiered storage
+
+s3 -> s3-IA -> glacier
+
+s3 -> mgt -> Add lifecycle rule
+name -> configure transistion -> 
+
+current version -> add transisistion
+to IA after 30 days
+to Glacier after 60 days
+
+previous version -> to IA -> to Glacier
+
+configure expiration
+save
+
+------
+
+lifecycle mgt - exam tips
+
+can be used in conjunction with versioning 
+can be applied to current and previous versions
+following actions can now be done
+ transition to the std - infrequent access storage class
+	128 kb and 30 days after the creation date
+archive to glacier storage class 
+	30 days after ia - if relevant
+permanantly delete
+
+----------
+
+S4 L21
+
+Cloud Front 
+CDN - content delivery network 
+
+it's a system of distributed servers(network) that deliver webpages and other web content to a user based on the geographic locations of the user.
+the origin of the webpage and a content delivery server.
+
+edge location 
+is the location where content will be cached
+this is seperate to an aws region/az
+
+origin
+this is the origin of all the files that the cdn will distribute.
+this can be either an 
+s3 bucket, an ec2 instance, an elastic load balancer or route 53.
+
+distribution - cdn
+collection of edge locations
+
+edge locations over 50 of them currently
+
+ttl
+time to live
+
+not quicker for the 1st user/ 1st time, but for the 2nd time it's faster
+
+amazon cloud front can be used to deliver ur entire website
+including dynamic, static and streaming and interactive content using a globale network of edge locations.
+requests for your content are automatically routed to the nearest edge location.
+so content is delivered with the best possible performance
+
+
+amz cloudfront is optimized to work with any other amz web services
+like s3, elastic compute cloud, elastic load balancing and amazon route 53.
+amz cloud front also works seamlessly with any non-aws origin server which stores the original definitive versions of ur files.
+
+Cloud Front - Key Terminology
+
+Web Distribution - Typically used for websites
+RTMP - used for media streaming
+
+--cloud front exam tips
+
+edge location - this is the location where content will be cached.
+this is seperate to an aws region/az
+
+origin - this is the origin of all the files that the cdn will distribute. this can be either an s3, ec2 or elastic load balancer or Route 53.
+
+Distribution - this is the name given to the cdn which consists of a collection of edge locations.
+
+web distribution - typically used for websites
+	Web - for websites
+	RTMP - for media streaming 
+
+edge locations are not just for read only, you can write to them too.
+(put an object to them)
+
+objects are cached for the life of the TTL (time to live)
+
+you can clear cached objects, but you will be charged.
+
+------------
+
+S4 L22
+Cloud Front
+
+services -> Networking and content delivery -> Cloud Front
+
+create a distribution
+Web / RTMP
+
+restrict viewer access
+- use signed urls or signed cookies
+
+Distribution settings 
+-origin
+-behavior
+-error pages
+-restrictions - geographical - white/black list
+-invalidations - rather than waiting for ttl, can invalidate, is charged
+
+ttl - time to live - always in seconds
+
+configurations
+
+behaviours
+
+Geo Restriction settings
+
+create invalidation
+	pay
+
+Distribution -> select it and disable it.
+then go and delete it
+
+----
+
+S4 L23
+
+S3 - security encryption
+
+securing your buckets
+
+by default, all newly created buckets are private
+you can set up access control to ur buckets using;
+bucket policies
+access control lists
+
+s3 buckets can be configured to create access logs which logs all requests made to the s3 bucket. this can be done to another bucket.
+
+Encryption:
+ 
+In transit
+	SSL/TLS		https
+
+At Rest
+	server side encryption
+	client side
+
+server side
+1. s3 managed keys - 					SSE-S3	
+	256
+2. AWS Key Mgt service, managed keys - 			SSE-KMS
+	provides order trail
+3. server side encryption with customer provided keys - SSE-C
+
+client side encryption
+you encrypt the data at client side and upload it to s3
+
+-------------
+S4 L24
+
+Storage gateway
+popular exam topic
+
+is a service 
+that connects an on-premises sw appliance 
+with cloud-based storage 
+to provide seamless and secure integration 
+between an organization's on-premises IT environment and AWS's storage infrastructure. 
+The service enables you to securely store data to the aws cloud for scalable and cost effective storage.
+
+		  storage gw
+your data center  ---------> 	aws
+
+aws storage gateway's sw appliance is available for download as a virtual machine VM image that you install on a host in your datacenter. 
+storage gateway supports either vmware esxi or  microsoft hyper-v. once you've installed your gateway and associated it with your aws account through the acitvation process, you can use the aws mgt console to create the storage gateway option that is right for you.
+
+Four types of storage gateways
+
+File Gateway (NFS)
+flat files
+stores directly on s3
+
+Volumes Gateway (iSCSI)
+block based
+os, virtual hdd, vm
+.stored volumes		-	gateway stored volume
+.cached volumes		-	gateway cached volume
+
+Tape Gateway (VTL) - virtual tape library
+allows u to create virtual tapes
+
+Files are stored as objects in your s3 buckets, 
+accessed through a network file system(NFS) mount point.
+Ownership, permissions, and timestaps are durably stored in s3 in the user-metadata of the object associated with the file.
+once objects are transferred to s3, they can be managed as native s3 objects and bucket policies such as versioning, lifecycle mgt and cross-region replication apply directly to objects stored in your bucket.
+
+
+	      NFS			 direct connect
+App server ---------storage gateway----  internet ---------s3-s3ia-glacier
+					 VPC	
+
+Volume Gateway
+like virtual hdd
+The volume interface presents ur app with disk volumes using the iSCSI block protocol.
+Data written to these volumes can be asychronously backed up as point-in-time snapshots of your volumes, and stored in the cloud as EBS snapshots
+snapshots are incremental backups that capture only changed blocks. all snapshots storage is also compressed to minimize your storage charges.
+
+Volume gateway - stored volumes
+like virtual hdd
+store entire copy of ur dataset locally
+then asynchronously backup that data to aws
+
+Store volumes let you store you primary data locally,
+while asynchronously backing up that data to AWS. 
+AWS stored volumes provide your on-premise applications with low-latency access to their entire datasets, while providing durable, off-site backups.
+you can create storage volumes and mount them as iSCSI devices from your on-premises app servers. Data written to your stored volumes is stored on your on-premises storage hw. This data is asynchronously backed up to amazon simple storage service in the form of Elastic Block Store (EBS) snapshots. 1GB - 16TB in size for stored volumes.
+
+Volume Gateway - Cached volumes
+
+cached volumes let you use s3 as your primry data storage while retaining frequently accessed data locally in your storage gw. cached volumes minimize the need to scale your on-premises storage infrastructure. while still providing your apps with low-latency access to their frequently accessed data.
+You can create storage  volumes up to 32 TiB in size and attach to them as iSCSI devices from your on-premises app servers. your gw stores data data that you wite to theses volumes in s3 and retains recently read data in your on-premises storage gw's cache and upload buffer storage. 1GB - 32TB in size for cached volumes.
+
+Volume Gateway -Tape Gateway
+basically used for backup
+
+Tape gateway offers a durable cost effective solution to archive your data in the aws cloud. the vtl interface it provides lets you leverage your existing tape-based backup app infrastructure to store data on virtual tape cartridges that you create on your tape gw. each tape gw is preconfigured with a media changer and tape drives, which are available to your existing client backup apps as iSCSI devices. you add tape cartridges as you need to archive your data. supported by NetBackUp, backup exec, veeam etc.
+
+
+--exam tips
+
+
+File Gw - for flat files, stored directly on s3. docs, pdfs
+Volume Gw - 
+ stored volumes - entire dataset is stored on site and is asynchronously backed up to s3
+ cached volumes - entire dataset is stored on s3 and the most frequently accessed data is cached on site.
+Gateway Virtual Tape Library - VTL
+ used for backup and used popular backup apps like netBackUp, backup exec, veeam etc.
+
+
+----------------------------------------------------------------------------------
+S4 L25
+
+Snowball
+
+Import/Export Disk
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+***samTheCloudGuy*****************************************************************************
+
+part 27	aws ec2
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+---
+
+
+aws cloud 9
+a cloud ide
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+https://www.youtube.com/watch?v=ye7hgGZwSsY&list=PLJIqXVV4K5LXEGBDPy1mxigzNVMAzkOHv
+
+
+
+
+
+
+
+
+
+
+	
+
+
+
+
+
+
+
+
+
+
+
