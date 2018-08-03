@@ -21,9 +21,17 @@ if [ -d "$HOME/bin" ] ; then
     PATH="$HOME/bin:$PATH"
 fi
 
-#export JAVA_HOME=/home/janarthan/installs/jdk1.8.0_112
-export JAVA_HOME=/home/janarthan/installs/jdk1.7.0_80
-export MAVEN_HOME=/home/janarthan/installs/apache-maven-3.5.0
-export NODE_HOME=/home/janarthan/installs/node-v6.11.4-linux-x64
+export _JAVA_OPTIONS="-Xms512m -Xmx3g"
 
-export PATH=$PATH:$JAVA_HOME/bin:$MAVEN_HOME/bin:$NODE_HOME/bin
+export JAVA_HOME=/home/janarthan/installs/jdk1.8.0_112
+#export JAVA_HOME=/home/janarthan/installs/jdk1.7.0_80
+export MAVEN_HOME=/home/janarthan/installs/apache-maven-3.5.0
+#export NODE_HOME=/home/janarthan/installs/node611
+export NODE_HOME=/home/janarthan/installs/nodeV89
+#export nodeModulesGlobalHome=/home/janarthan/installs/node611/.node_modules_global
+export GRADLE_HOME=/home/janarthan/installs/gradle-4.9
+
+export PATH=$PATH:$JAVA_HOME/bin:$MAVEN_HOME/bin:$NODE_HOME/bin:$GRADLE_HOME/bin
+
+#without NODE_HOME
+#export PATH=$PATH:$JAVA_HOME/bin:$MAVEN_HOME/bin
