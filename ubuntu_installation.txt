@@ -1,5 +1,8 @@
 
+Installing on 18.04 on Dell Inspiron on 5559 @2018Aug24
 Installing 17.1 on Dell inspiron 5559 @2018Mar31
+
+Use start up disk creator utility to create bootable usb
 
 f2 - enter boot setup
 
